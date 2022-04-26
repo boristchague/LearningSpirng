@@ -1,0 +1,9 @@
+Alors la différence entre un Singleton et un Prototype c'est quoi 
+
+le singleton est un bean ou object java instantié une fois 
+du coup a un moment on devrait pouvoir le supprimer, du coup on a un init-method à l'instantiation 
+et un destroy-method pour la destruction du bean
+
+Dans le cas d'un prototype on crée plusieurs instances du même type d'object,
+De on peut definir la méthode ou comportement init-methode mais pas la destroy-method 
+le framework s'en charge lui même

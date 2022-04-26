@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+    <!-- load the property file -->
+    <context:property-placeholder location="classpath:sport.properties"/>
+    
+    <bean id="myFortuneservice"
+           class="com.btchague.springDemo.HappyFortuneService">
+    </bean>
+    
+    <bean id="myCoach"
+           class="com.btchague.springDemo.TrackCoach">
+           <constructor-arg ref="myFortuneservice" />
+    </bean>
+    
+    <bean id="myCricketCoach"
+          class = "com.btchague.springDemo.CricketCoach">
+          
+          <!-- define the setter for our  -->
+          <property name="fortuneService" ref="myFortuneservice"/>
+          
+          <!-- Injecting literal values -->
+          <property name="league" value="${foo.league}"/>
+          <property name="emailAdress" value ="${foo.email}"/>
+          <property name="teams" value="${foo.team}"/>
+          
+          <property name="coachName" value="Alphonso"/>
+          <property name="level" value="league1"/>
+          
+    </bean>
+    
+</beans>
+
+
+
+
+
